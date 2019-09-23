@@ -43,6 +43,8 @@
 #include "combat/combat.h"
 #include "items/inventory.h"
 
+#include "utils/transfer_to_char_server.h"
+
 #include "random.h"
 
 #include "cli_party_req.h"
@@ -1027,11 +1029,11 @@ RoseCommon::Entity EntitySystem::create_mob(RoseCommon::Entity spawner) {
 }
 
 void EntitySystem::send_to_maps(const RoseCommon::CRosePacket& packet, const std::vector<uint16_t>& maps) const {
-    server->send_to_maps(packet, maps);
+    server->send_to_maps(packet, maps, 0);
 }
 
-void EntitySystem::send_to_char_server(const RoseCommon::CRosePacket& packet) const {
-    server->send_to_maps(packet, {0});
+void EntitySystem::send_to_char_server(const RoseCommon::CRosePacket& packet, uint32_t originator) const {
+    server->send_to_maps(packet, {0}, originator);
 }
 
 void EntitySystem::send_to_chars(const RoseCommon::CRosePacket& packet, const std::vector<std::string>& chars) const {
