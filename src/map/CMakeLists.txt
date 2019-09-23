@@ -33,6 +33,7 @@ SET( SOURCES_HEADER
   include/items/inventory.h
   include/utils/name_to_session.h
   include/utils/getters.h
+  include/utils/transfer_to_char_server.h
   )
 
 SET( SOURCES_MAIN
