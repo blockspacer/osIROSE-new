@@ -12,13 +12,22 @@ elseif( ${CMAKE_CXX_COMPILER_ID} STREQUAL Clang )
 endif()
 
 SET( SOURCES_MAIN
-  src/main.cpp )
+  src/main.cpp
+  src/client.cpp
+  src/login_client.cpp
+  src/char_client.cpp
+  src/map_client.cpp
+)
 
 SET( SOURCES_HEADER
-    )
+  include/client.h
+  include/login_client.h
+  include/char_client.h
+  include/map_client.h
+)
 
 SET( SOURCES_BASE
-    )
+)
 
 add_executable(${PROJECT} ${SOURCES_MAIN} ${SOURCES_BASE} ${SOURCES_HEADER})
 
